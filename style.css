@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #123524;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    position: relative;
+}
+
+.clock{
+    height: 300px;
+    width: 300px;
+    background-color: #EFE3C2;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock::before{
+    content: '';
+    height: 15px;
+    border-radius: 50%;
+    width: 15px;
+    background-color: rgb(1, 43, 6);
+    position: absolute;
+    z-index: 2;
+}
+
+.clock span{
+    position: absolute;
+    inset: 12px;
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+}
+
+.clock span b{
+    border: 1px solid white;
+    padding: 5px;
+    font-weight: 700;
+    border-radius: 30%;
+    -webkit-text-stroke: 1px white;
+    transform: rotate(calc(-30deg * var(--i)));
+    display: inline-block;
+    font-size: 30px;
+    color: #123524;
+    animation: colorChanging 5s ease-in-out infinite alternate-reverse;
+}
+
+.hand{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hand i {
+    position: absolute;
+    width: 4px;
+    height: var(--h);
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: aqua;
+    background-color: var(--clr);
+    animation: colorChanging 5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes colorChanging {
+    0% {
+        border-color: blue;
+    }
+    10% {
+        border-color: rgb(8, 8, 221);
+    }
+    20% {
+        border-color: rgb(11, 11, 176);
+    }
+    30% {
+        border-color: rgb(14, 14, 121);
+    }
+    40% {
+        border-color: rgb(8, 8, 74);
+    }
+    50% {
+        border-color: rgb(0, 0, 13);
+    }
+    60% {
+        border-color: rgb(176, 11, 168);
+    }
+    70% {
+        border-color: aqua;
+    }
+    80% {
+        border-color: yellow;
+    }
+    90% {
+        border-color: #123524;
+    }
+    100% {
+        border-color: black;
+    }
+}
